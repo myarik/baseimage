@@ -12,6 +12,6 @@ image type there is a `image-latest` tag.
 
 ### Django:2.7
 
-`myarik/baseimage:django:2.7-latest`
+`myarik/baseimage:django2.7-latest`
 
 The latest stable version of Django based on the python:2.7-alpine image

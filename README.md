@@ -15,3 +15,8 @@ image type there is a `image-latest` tag.
 `myarik/baseimage:django2.7-latest`
 
 The latest stable version of Django based on the python:2.7-alpine image
+
+### Django:2.7-buster
+`myarik/baseimage:django2.7-buster-latest`
+
+The latest stable version of Django based on the python:2.7-slim-buster image

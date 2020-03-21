@@ -5,9 +5,15 @@ LABEL maintainer="Yaroslav Muravskyi <y@myarik.com>"
 ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-          build-essential \
-          curl \
+  # dependencies for building Python packages
+  && apt-get install -y build-essential \
+  # psycopg2 dependencies
+  && apt-get install -y libpq-dev \
+  # Translations dependencies
+  && apt-get install -y gettext \
+  # Extra packages
+  && apt-get -y install curl \
+          libssl-dev \
           g++ \
           git-core \
           libbz2-dev \
@@ -25,9 +31,9 @@ RUN apt-get update \
           pkg-config \
           libncurses5-dev \
           libncursesw5-dev \
-          postgresql-contrib \
-          postgresql-client \
           tzdata \
-    && rm -rf /var/lib/apt/lists/*
+  # cleaning up unused files
+  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN cp /usr/share/zoneinfo/America/New_York /etc/localtime

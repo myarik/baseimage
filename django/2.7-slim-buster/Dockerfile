@@ -31,6 +31,7 @@ RUN apt-get update \
           pkg-config \
           libncurses5-dev \
           libncursesw5-dev \
+          xmlsec1 \
           tzdata \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
